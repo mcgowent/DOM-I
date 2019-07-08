@@ -9,7 +9,7 @@ const siteContent = {
     "img-src": "img/logo.png"
   },
   "cta": {
-    "h1": "DOM Is Awesome",
+    "h1": 'DOM Is Awesome',
     "button": "Get Started",
     "img-src": "img/header-img.png"
   },
@@ -47,43 +47,36 @@ header.setAttribute('src', siteContent["cta"]["img-src"])
 let midImage = document.getElementById("middle-img");
 midImage.setAttribute('src', siteContent["main-content"]["middle-img-src"])
 
-//Nav Items
-
-
-
-
 let nav = document.querySelectorAll('a')
 
-
-nav[0].textContent = siteContent['nav']['nav-item-1']
-nav[1].textContent = siteContent['nav']['nav-item-2']
-nav[2].textContent = siteContent['nav']['nav-item-3']
-nav[3].textContent = siteContent['nav']['nav-item-4']
-nav[4].textContent = siteContent['nav']['nav-item-5']
-nav[5].textContent = siteContent['nav']['nav-item-6']
-
+nav.forEach((element, index) => {
+  const navText = `nav-item-${index+1}`;
+  element.textContent = siteContent["nav"][navText];
+})
 
 const navA = document.querySelector('nav')
-
 const someString1 = document.createElement('a')
 someString1.textContent = "AppendChild"
 navA.appendChild(someString1)
+someString1.style.color = 'green'
 
 const someString = document.createElement('a');
 someString.textContent = "prepend";
 navA.prepend(someString);
+someString.style.color = 'green'
+console.log("Red")
 
 nav.forEach(x => {
   x.style.color = 'green'
+  console.log("Green")
 })
-
 
 let mainHeader = document.querySelector('h1')
 mainHeader.textContent = siteContent['cta']['h1']
+mainHeader.innerHTML = "DOM<br> Is <br>Awesome"
 
 let mainButton = document.querySelector('button')
 mainButton.textContent = siteContent['cta']['button']
-
 
 // main - content ": {
 // "features-h4": "Features",
